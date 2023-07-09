@@ -1,0 +1,28 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.formItem > label {
+  font-size: 0.9rem;
+  width: 100%;
+  text-align: left;
+}
+
+.formItem > input {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+}
+
+.alignLeft {
+  text-align: left;
+}
