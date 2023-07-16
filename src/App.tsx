@@ -112,6 +112,17 @@ function App() {
     console.log("error(deleteAccount):", error);
   }, [session, signOut]);
 
+  const insertData = useCallback(async () => {
+    if (!session?.user?.id) {
+      console.error("No User Id, cannot delete");
+      return;
+    }
+
+    const { data, error } = await supabase.functions.invoke("insertData");
+    console.log("data(deleteAccount):", data);
+    console.log("error(deleteAccount):", error);
+  }, [session]);
+
   if (session) {
     return (
       <>
@@ -120,6 +131,9 @@ function App() {
           <p>Email: {session?.user?.email}</p>
         </div>
         <p>Logged in!</p>
+        <br />
+        <button onClick={insertData}>Insert Data through Edge Function</button>
+        <br />
         <button onClick={signOut}>Sign Out</button>
         &nbsp;
         <button onClick={deleteAccount}>Delete this user</button>
